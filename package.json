@@ -5,12 +5,15 @@
   "description": "guestbook app exercise",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jadon Forman",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.2",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.9"
   }
 }
