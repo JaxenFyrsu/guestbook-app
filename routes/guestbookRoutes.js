@@ -36,7 +36,7 @@ router.post('/guestbook', (req, res) => {
 
     // Add the guests to the in-memory storage
     guests.push({ name, message });
-    res.send(`Hello, ${name}. Your message was received: ${message}`);
+    res.send(`${name}, ${message}`);
 });
 
 // Route: Display all signups (for testing purposes)
