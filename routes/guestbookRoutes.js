@@ -1,3 +1,4 @@
+import path from "path";
 import express from 'express';
 const router = express.Router();
 
@@ -11,24 +12,16 @@ router.get('/', (req, res) => {
 });
 
 // an array to temporarily store our form data. Later we will switch this out for a DBMS
-let guests = [];
+let signup = [];
 
 // Display the guestbook form.  Notice it is a GET method
-router.get('/guestbook', (req, res) => {
-    res.send(`
-    <h1>Guestbook</h1>
-    <form method="POST" action="/guestbook">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required><br><br>
-      <label for="message">Message:</label>
-      <input type="message" id="message" name="message" required><br><br>
-      <button type="submit">Send</button>
-    </form>
-  `);
-});
+router.get("/signup", (req, res) => {
+    res.sendFile(path.join(process.cwd(), "public", "signup.html"));
+ });
+ 
 
 // Handle the guestbook form submission. Notice it is a POST method
-router.post('/guestbook', (req, res) => {
+router.post('/signup', (req, res) => {
     const { name, message } = req.body;
     if (!name || !message) {
         return res.status(400).send('Name and message are required.');
@@ -40,7 +33,7 @@ router.post('/guestbook', (req, res) => {
 });
 
 // Route: Display all signups (for testing purposes)
-router.get('/guests', (req, res) => {
+router.get('/signup', (req, res) => {
     res.json(guests);
 });
 
