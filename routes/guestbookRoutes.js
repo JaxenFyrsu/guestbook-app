@@ -14,27 +14,27 @@ router.get('/', (req, res) => {
 // an array to temporarily store our form data. Later we will switch this out for a DBMS
 let signup = [];
 
-// Display the guestbook form.  Notice it is a GET method
+// Display the signup form.  Notice it is a GET method
 router.get("/signup", (req, res) => {
     res.sendFile(path.join(process.cwd(), "public", "signup.html"));
  });
  
 
-// Handle the guestbook form submission. Notice it is a POST method
+// Handle the signup form submission. Notice it is a POST method
 router.post('/signup', (req, res) => {
     const { name, message } = req.body;
     if (!name || !message) {
         return res.status(400).send('Name and message are required.');
     }
 
-    // Add the guests to the in-memory storage
-    guests.push({ name, message });
+    // Add the signup to the in-memory storage
+    signup.push({ name, message });
     res.send(`${name}, ${message}`);
 });
 
 // Route: Display all signups (for testing purposes)
 router.get('/signup', (req, res) => {
-    res.json(guests);
+    res.json(signup);
 });
 
 // Make the file available to be imported into app.js
