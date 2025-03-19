@@ -5,7 +5,7 @@
   "description": "guestbook app exercise",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon start",
+    "start": "node node_modules/nodemon/bin/nodemon.js start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jadon Forman",
