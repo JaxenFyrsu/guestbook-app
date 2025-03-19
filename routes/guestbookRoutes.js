@@ -33,7 +33,7 @@ router.post('/signup', (req, res) => {
 });
 
 // Route: Display all signups (for testing purposes)
-router.get('/signup', (req, res) => {
+router.get('/signups', (req, res) => {
     res.json(signup);
 });
 
