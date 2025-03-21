@@ -19,9 +19,11 @@ router.get("/signup", (req, res) => {
     res.render("signup", {
         title: "Sign Up",
         message: "Drop your contact below",
-        confirm: "Let's Go"
-    });
-});
+        confirm: "Let´s Go",
+    }
+    );
+ });
+ 
 
 // Handle the signup form submission. Notice it is a POST method
 router.post('/signup', (req, res) => {
@@ -32,13 +34,9 @@ router.post('/signup', (req, res) => {
 
     // Add the signup to the in-memory storage
     signups.push({ name, email });
-    res.render("thankyou", { title: "Thank You", name, email });
+    res.render("thankyou", {title: "Thank You", name, email});
 });
-
-// Route: Display all signups (for testing purposes)
-router.get('/signups', (req, res) => {
     res.json(signups);
-});
 
 // Make the file available to be imported into app.js
 export default router;

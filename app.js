@@ -1,5 +1,5 @@
 import express from 'express';
-import guestbookRoutes from './routes/guestbookRoutes.js';
+import signupRoutes from './routes/signupRoutes.js';
 import path from "path";
 
 
@@ -11,6 +11,9 @@ app.use(express.static(path.join(process.cwd(), "public")));
 app.set("view engine", "ejs");
 app.set("views", path.join(process.cwd(), "views"));
 
+app.set("view engine", "ejs");
+app.set("views", path.join(process.cwd(), "views"));
+
 const loggingMiddleware = (req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
   next();
@@ -19,7 +22,7 @@ const loggingMiddleware = (req, res, next) => {
 app.use(loggingMiddleware);
 
 // Use the signup routes
-app.use('/', guestbookRoutes);
+app.use('/', signupRoutes);
 
 app.use((req, res) => {
   res.status(404).send('Page Not Found');
